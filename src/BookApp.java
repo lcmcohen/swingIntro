@@ -1,6 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Application to keep track of a books 'likes'
+ *
+ */
 public class BookApp {
  String bookName;
     public static void main(String[] args) {
@@ -31,6 +35,16 @@ public class BookApp {
         JLabel labInstruction = new JLabel("hello, tell us if you like the book '" + bookName + "'");
         mainFrame.add(labInstruction);
 
+        // button for user to click if they like the book
+        JButton btnLike = new JButton("Like");
+        btnLike.setSize(60,20);
+        mainFrame.add(btnLike, BorderLayout.WEST);
+
+        // say what should happen when user clicks button
+        LikeManager lh = new LikeManager(mainFrame);
+
+        // set the LikeManager as the handler for all events related to the like button
+        btnLike.addActionListener(lh);
 
         mainFrame.setVisible(true);
     }
